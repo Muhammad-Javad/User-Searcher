@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.javadsh98.usersearcher.presentation.fragment.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.javadsh98.usersearcher.presentation.fragment.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detailFragment_to_socialFragment"
+            app:destination="@id/socialFragment" />
+        <action
+            android:id="@+id/action_detailFragment_to_repoFragment"
+            app:destination="@id/repoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/socialFragment"
+        android:name="com.javadsh98.usersearcher.presentation.fragment.social.SocialFragment"
+        android:label="fragment_social"
+        tools:layout="@layout/fragment_social" >
+        <action
+            android:id="@+id/action_socialFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="type"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_repo"
+        android:id="@+id/repoFragment"
+        android:name="com.javadsh98.usersearcher.presentation.fragment.repo.RepoFragment"
+        android:label="RepoFragment" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+</navigation>
